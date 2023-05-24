@@ -5,8 +5,8 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Username
                 </mat-label>
-                <input type="Username" #username matInput formControlName="Username" placeholder="xyz">
-                <mat-error *ngIf="loginform.controls['Username'].hasError('required')">
+                <input type="username" #username matInput formControlName="username" placeholder="xyz">
+                <mat-error *ngIf="loginform.controls['username'].hasError('required')">
                     Username is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
@@ -22,6 +22,6 @@
             </mat-form-field>
         </div>
     </div>
-    <button type="submit" mat-raised-button (click)="login(username.value, password.value)">Login</button>
+    <button type="submit" mat-raised-button (click)="login(loginform.value)">Login</button>
   </form>
 

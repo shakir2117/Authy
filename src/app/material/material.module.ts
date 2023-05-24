@@ -23,6 +23,8 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppModule } from '../app.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
@@ -30,6 +32,8 @@ import { AppModule } from '../app.module';
 
 
 const MaterialComponents=[
+
+  MatSnackBarModule,
   MatButtonModule,
   MatSlideToggleModule, 
   LayoutModule, 

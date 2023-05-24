@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {FormControl,FormBuilder, Validators} from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -10,30 +11,24 @@ import {FormControl,FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  loginform = this.fb.group({
-    Username: [null, Validators.required],
-    password: [null, Validators.compose([
-      Validators.required, Validators.minLength(8), Validators.maxLength(14)])
-    ],
+  registerForm = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.compose([Validators.required,Validators.maxLength(15),Validators.minLength(3)])],
     });
   
 
-  constructor(private http: HttpClient, private router: Router,private fb: FormBuilder) { }
+  constructor(private http: HttpClient, private router: Router,private fb: FormBuilder,private auth:AuthService) { }
 
   ngOnInit(): void {
   }
 
 
-  register(username: string, password: string) {
-    console.log('Registering user:', username, password);
-    const user = { username: username, password: password };
-    this.http.post('http://localhost:3000/users', user).subscribe(data => {
-      console.log('Registration successful:', data);
-      this.router.navigate(['/login']);
-    });
-  }
-  
-
-
-
+  register(registerForm: any) {
+    const data=this.registerForm.value
+if(this.registerForm.valid){
+  this.auth.register(this.registerForm.value)
+}else{
+  alert("Invalid Credentials")
+}
+}
 }

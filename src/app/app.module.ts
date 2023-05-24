@@ -8,9 +8,10 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from 'src/auth.guard';
 import { HeaderComponent } from './header/header.component';
+import { ApikeyInterceptor } from './apikey.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:ApikeyInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
