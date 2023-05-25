@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,private toastr: ToastrService) { }
 
 
 
@@ -20,18 +22,19 @@ export class AuthService {
         console.log('Data:', data)
         localStorage.setItem('currentUser', JSON.stringify(data[0]));
         this.router.navigate(['/home']);
+        this.toastr.success('User Logged In Successfully', 'Success', { timeOut: 3000 });
       }
       else{
-        alert("Invalid Username or Password");
+        this.toastr.error('Invalid Credentials', 'Error', { timeOut: 3000 });
       }
     });
   }
-
 
   register(registerForm: any) {
     this.http.post('http://localhost:3000/users', registerForm).subscribe(data => {
       console.log('Registration successful:', data);
       this.router.navigate(['/login']);
+      this.toastr.success('User Registered Successfully', 'Success', { timeOut: 3000 });
     });
   }
 }

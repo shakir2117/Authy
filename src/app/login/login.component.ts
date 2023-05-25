@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import {FormControl,FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,8 +21,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private snackBar: MatSnackBar,
-    private http: HttpClient,
+    private toastr: ToastrService,
     private router: Router,
     private fb: FormBuilder,
     private  auth: AuthService
@@ -44,6 +41,6 @@ login(loginform:any){
 if(this.loginform.valid){
   this.auth.login(this.loginform.value)
 }else{
-  alert('Invalid Username or Password');
+  this.toastr.error('Invalid Credentials')
 }}
 }

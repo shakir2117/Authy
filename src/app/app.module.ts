@@ -12,6 +12,8 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { AuthGuard } from 'src/auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { ApikeyInterceptor } from './apikey.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ApikeyInterceptor } from './apikey.interceptor';
     MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:ApikeyInterceptor,multi:true}
