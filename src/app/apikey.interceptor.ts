@@ -11,7 +11,6 @@ import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable()
 export class ApikeyInterceptor implements HttpInterceptor {
-
   constructor(private toastr: ToastrService) {}
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const API_KEY = 'AIzaSyD0Z2Y1-_X8XrZLt-JmXhNz-3-Jh-5ztb4';

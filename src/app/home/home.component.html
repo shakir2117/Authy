@@ -1,3 +1,7 @@
 <app-header></app-header>
-<button mat-raised-button (click)="logout()">logout<mat-icon>logout</mat-icon></button>
+<table>
+<tr *ngFor="let word of titleCaseWords">
+    <td><h1>{{word}} </h1></td>
+</tr>
+</table>
 <h1 class="msg">Login Successfully</h1>
