@@ -4,3 +4,6 @@ button{
 .msg{
     padding: 20% 42%;
 }
+.titlecase{
+    display: inline-block;
+}

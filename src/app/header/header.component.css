@@ -7,3 +7,8 @@
 .nav button{
     margin-left: 1em;
 }
+.user{
+    display: block;
+    line-height: 0%;
+    font-size: 10px;
+}

@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="product">
+    <h1>
+        Product 
+    </h1>
+        <table>
+            <tr>
+                <th>
+                    <h2>Product List</h2>
+                </th>
+            </tr>
+            <ng-container *ngFor="let cat of product">
+            <tr>
+                <td>
+                    <h2>{{cat.product}}</h2>
+                </td>
+            </tr>
+        </ng-container> 
+    </table>
+</div>

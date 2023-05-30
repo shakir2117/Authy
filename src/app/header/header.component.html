@@ -1,16 +1,43 @@
 <p>
-    <mat-toolbar color="primary">
-      <span>AUTHY😎</span>
-      <span class="spacer"></span>
-      <span class="nav">
-        <button mat-raised-button routerLink="/home">
-            <mat-icon>home</mat-icon>Home</button>
-        <button mat-raised-button routerLink="/login">
-          <mat-icon>login</mat-icon>Login
+  <mat-toolbar color="primary">
+    <span>AUTHY😎</span>
+    <span class="spacer"></span>
+    <span class="nav">
+      <ng-container *ngIf="(storage!=null)">
+        <button mat-raised-button routerLink="/home" *ngIf="user.role!='user'">
+          <mat-icon>home</mat-icon>Home</button>
+        <button mat-raised-button routerLink="/category" *ngIf="user.role!='user'">
+          <mat-icon>horizontal_split</mat-icon>
+          Category</button>
+        <button mat-raised-button routerLink="/product" *ngIf="user.role!='user'">
+          <mat-icon>list</mat-icon>
+          Product</button>
+        <button mat-button>
+          <mat-icon>account_circle</mat-icon>
+          <p class="user">
+            {{user.username}}
+          </p>
+          <p class="user">
+            {{user.role}}
+          </p>
         </button>
-        <button mat-raised-button routerLink="/register">
-          <mat-icon>add</mat-icon>Register</button>
-      </span>
-    </mat-toolbar>
+      </ng-container>
+    </span>
 
-  </p>
+    <span>
+      <ng-container *ngIf="storage==null">
+        <button mat-icon-button routerLink="/login">
+          <mat-icon>login</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="storage==null">
+        <button mat-icon-button routerLink="/register">
+          <mat-icon>add</mat-icon></button>
+      </ng-container>
+      <ng-container *ngIf="storage!=null">
+        <button mat-icon-button (click)="logout()">
+          <mat-icon>logout</mat-icon></button>
+      </ng-container>
+    </span>
+  </mat-toolbar>
+</p>

@@ -13,18 +13,11 @@ export class HomeComponent {
 
   ngOnInit() {
     this.http.get('http://localhost:3000/users').subscribe(data => {
-      console.log(data);
     });
 }
 
 arr:string[]=['hello', 'bird', 'table', 'football', 'pipe', 'code'];
 titleCaseWords: string[] = this.arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
 
-
-
-logout(){
-  localStorage.clear()
-  this.route.navigate(['/login'])
-}
 }
 

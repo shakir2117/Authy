@@ -13,6 +13,8 @@ import { AuthGuard } from 'src/auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { ApikeyInterceptor } from './apikey.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     HomeComponent,
     HeaderComponent,
+    CategoryComponent,
+    ProductComponent,
     
   ],
   imports: [

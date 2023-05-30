@@ -1,7 +1,5 @@
 <app-header></app-header>
-<table>
-<tr *ngFor="let word of titleCaseWords">
-    <td><h1>{{word}} </h1></td>
-</tr>
-</table>
+<div class="titlecase" *ngFor="let word of titleCaseWords">
+    <h1>{{word}},&nbsp;</h1>
+</div>
 <h1 class="msg">Login Successfully</h1>
