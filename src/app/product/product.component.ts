@@ -13,10 +13,15 @@ export class ProductComponent implements OnInit
 
   product: any = [];
 
-  ngOnInit(): void {
-    this.http.get('http://localhost:3000/product').subscribe(data => {
-      this.product = data;
-      console.log("Category:",this.product)
-    });
+  ngOnInit(){
+    if(sessionStorage.getItem('product')){
+      this.product = JSON.parse(sessionStorage.getItem('product') || '{}');
+    }
+    else{
+      this.http.get('http://localhost:3000/product').subscribe((data:any)=>{
+        this.product=data;
+        sessionStorage.setItem('product',JSON.stringify(this.product))
+      })
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class AuthService {
     this.http.get('http://localhost:3000/users?username=' + username + '&password=' + password).subscribe((data: any) => {
       if (data.length > 0) {
         console.log('Data:', data)
-        localStorage.setItem('currentUser', JSON.stringify(data[0]));
+        sessionStorage.setItem('currentUser', JSON.stringify(data[0]));
         this.router.navigate(['/home']);
         this.toastr.success('User Logged In Successfully', 'Success', { timeOut: 3000 });
       }
