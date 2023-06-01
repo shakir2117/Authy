@@ -1,6 +1,7 @@
 import { Component,OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -9,15 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private http: HttpClient , private route:Router) {}
+  constructor(private http: HttpClient , private route:Router,private cookie:CookieService) {}
 
   ngOnInit() {
-    let user:any=JSON.parse(localStorage.getItem('currentUser')||'')
+    let  role = this.cookie.get('role')
+    let username=this.cookie.get('Username')
+
     let httpheaders = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + JSON.stringify(user),
-      'username': user.username,
-      'role': user.role,
+      'Authorization': 'Bearer ' + username,
+      'username': username,
+      'role': role,
     });
     // httpheaders= httpheaders.append('username', user.username);
     // httpheaders= httpheaders.append('role', user.role);

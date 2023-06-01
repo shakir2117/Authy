@@ -15,6 +15,7 @@ import { ApikeyInterceptor } from './apikey.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ProductComponent } from './product/product.component';
     ToastrModule.forRoot()
   ],
   providers: [
+    CookieService,
     {provide:HTTP_INTERCEPTORS, useClass:ApikeyInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]

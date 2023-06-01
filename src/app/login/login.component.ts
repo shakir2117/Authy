@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {FormControl,FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -24,19 +25,16 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     private fb: FormBuilder,
-    private  auth: AuthService
+    private  auth: AuthService,
+    private cookie: CookieService
     ) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('currentUser')) {
-      console.log('User is logged in');
+    if (this.cookie.check('login')==true) {
+      console.log('User is logged in already');
       this.router.navigate(['/home'])
     }
   }
-
-
-  
-
 login(loginform:any){
 if(this.loginform.valid){
   this.auth.login(this.loginform.value)

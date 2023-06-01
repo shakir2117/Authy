@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -10,9 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
-
-
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService,
+    private cookie:CookieService) { }
 
 
   login(loginform: any) {
@@ -20,8 +20,10 @@ export class AuthService {
     const password = loginform.password;
     this.http.get('http://localhost:3000/users?username=' + username + '&password=' + password).subscribe((data: any) => {
       if (data.length > 0) {
+        this.cookie.set('login','true')
         console.log('Data:', data)
-        sessionStorage.setItem('currentUser', JSON.stringify(data[0]));
+        this.cookie.set('Username', data[0].username, 1, '/', '', false, 'Strict');
+        this.cookie.set('role', data[0].role, 1, '/', '', false, 'Strict');
         this.router.navigate(['/home']);
         this.toastr.success('User Logged In Successfully', 'Success', { timeOut: 3000 });
       }
@@ -40,7 +42,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear()
+    this.cookie.deleteAll()
     this.router.navigate(['/login'])
   }
 }

@@ -12,10 +12,11 @@ import { CategoryGuard } from './category.guard';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path : 'category', component: CategoryComponent, canActivate: [AuthGuard,CategoryGuard]},
+  {path : 'category', component: CategoryComponent, canActivate: [AuthGuard,CategoryGuard]},  
   {path : 'product', component: ProductComponent, canActivate: [AuthGuard,ProductGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Add AuthGuard to home route
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+
 
 ];
 
