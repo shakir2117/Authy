@@ -2,6 +2,7 @@ import { Component,OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment.development';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  apiURL = environment.apiurl;
   constructor(private http: HttpClient , private route:Router,private cookie:CookieService) {}
 
   ngOnInit() {
@@ -24,7 +26,7 @@ export class HomeComponent {
     });
     // httpheaders= httpheaders.append('username', user.username);
     // httpheaders= httpheaders.append('role', user.role);
-    this.http.get('http://localhost:3000/users', { headers: httpheaders }).subscribe(data => {
+    this.http.get(this.apiURL+'users', { headers: httpheaders }).subscribe(data => {
     });
 }
 

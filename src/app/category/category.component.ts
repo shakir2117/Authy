@@ -2,6 +2,7 @@ import { Component, OnInit,AfterViewInit, ViewChild} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-category',
@@ -10,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 
 export class CategoryComponent implements OnInit {
+  apiURL = environment.apiurl;
 
   constructor(private auth: AuthService,private http:HttpClient,private cookie:CookieService) { }
 
@@ -19,7 +21,7 @@ export class CategoryComponent implements OnInit {
       this.category = JSON.parse(this.cookie.get('category'));
     }
     else{
-      this.http.get('http://localhost:3000/category').subscribe((data:any)=>{
+      this.http.get(this.apiURL+'category').subscribe((data:any)=>{
         this.category=data
         this.cookie.set('category',JSON.stringify(this.category));
       })
