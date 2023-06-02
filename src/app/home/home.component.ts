@@ -2,7 +2,7 @@ import { Component,OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 
 @Component({

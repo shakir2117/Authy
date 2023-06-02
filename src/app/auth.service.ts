@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from 'src/environments/environment.development';
-
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
