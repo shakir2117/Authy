@@ -4,14 +4,18 @@
     <span class="spacer"></span>
     <span class="nav">
       <ng-container *ngIf="(login==true)">
-        <button mat-raised-button routerLink="/home" *ngIf="role!='user'">
+        <button mat-raised-button routerLink="/home">
           <mat-icon>home</mat-icon>Home</button>
         <button mat-raised-button routerLink="/category" *ngIf="role!='user'">
           <mat-icon>horizontal_split</mat-icon>
           Category</button>
-        <button mat-raised-button routerLink="/product" *ngIf="role!='user'">
+        <button mat-raised-button routerLink="/product" *ngIf="role !== 'user' && role !== 'admin'">
           <mat-icon>list</mat-icon>
           Product</button>
+          <button mat-raised-button routerLink="/access" *ngIf="role !== 'user' && role !== 'admin'">
+            <mat-icon>edit</mat-icon>
+            Status</button>
+
         <button mat-button>
           <mat-icon>account_circle</mat-icon>
           <p class="user">

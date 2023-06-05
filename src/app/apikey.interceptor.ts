@@ -19,7 +19,7 @@ export class ApikeyInterceptor implements HttpInterceptor {
         let errormessage:string
         if (err.status === 0) {
           // A client-side or network error occurred. Handle it accordingly.
-          errormessage =  `An error occurred: ${err.message} `
+          errormessage =  `An error occurred: ${err.message}`
         } else if((!(err instanceof HttpErrorResponse))) {
           // The backend returned an unsuccessful response code.
           errormessage =  err.rejection;

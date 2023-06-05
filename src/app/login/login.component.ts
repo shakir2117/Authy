@@ -4,6 +4,9 @@ import {FormControl,FormBuilder, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+
+
 
 
 @Component({
@@ -26,7 +29,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private  auth: AuthService,
-    private cookie: CookieService
+    private cookie: CookieService,
+    private ngxLoader: NgxUiLoaderService
     ) { }
 
   ngOnInit(): void {
@@ -37,7 +41,9 @@ export class LoginComponent implements OnInit {
   }
 login(loginform:any){
 if(this.loginform.valid){
+  this.ngxLoader.start();
   this.auth.login(this.loginform.value)
+  this.ngxLoader.stop();  
 }else{
   this.toastr.error('Invalid Credentials')
 }}

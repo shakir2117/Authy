@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-accessedit [useredit]="edit" (usereditChange)="onSubmit($event)"></app-accessedit>
+<mat-form-field appearance="outline">
+    <mat-label>
+      Search Data
+    </mat-label>
+    <input matInput type="text" (input)="searchuser(search.value)" key #search placeholder="Search">
+  </mat-form-field>
+  <br>
+<h2>Users List</h2>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Username</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.id }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.role }}</td>
+    <td>{{user.status}}</td>
+    <td><button (click)="edituser(user)">Edit</button></td>
+  </tr>
+</table>

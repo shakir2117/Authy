@@ -21,6 +21,12 @@
                 </mat-error>
             </mat-form-field>
         </div>
+        <div class="row" >
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Status</mat-label>
+                <input type="text" #status matInput formControlName="status" [readonly]="true">
+            </mat-form-field>
+        </div>        
     </div>
     <button type="submit" mat-raised-button (click)="register(registerForm.value)">Register</button>
   </form>

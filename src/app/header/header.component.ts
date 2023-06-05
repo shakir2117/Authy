@@ -9,8 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  login=this.cookie.check('login',);
-  // cookval:any=this.cookie.get('login');
+  login=this.cookie.check('Username'&&'role');
+
   ngOnInit() {
     console.log('user login Status is '+ this.login);
   }

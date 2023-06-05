@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import * as React from 'react';
+import { render } from 'react-dom';
 
+import reactcomponent from './reactcomponent';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'authandlog';
+  // @ViewChild('reactcomponent') reactcomponent!: ElementRef;
+  // ngAfterViewInit(){
+  //   render(React.createElement(reactcomponent),this.reactcomponent.nativeElement);
+  // }
 }
