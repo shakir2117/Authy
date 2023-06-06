@@ -1,8 +1,26 @@
-.regform{
-    width: 250px;
+.regform {
+    width: 30%;
     margin: 0 auto;
     background: #f4f7f8;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #cdd2d5;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 0 40%;
+}
+
+.uploaded-image {
+
+    border: #000000 2px solid;
+    height: 150px;
+    width: 150px;
+    margin: 5% auto;
+    border-radius: 50%;
 }

@@ -1,6 +1,28 @@
 <app-header></app-header>
-  <form [formGroup]="registerForm" novalidate class="regform">
+<form [formGroup]="registerForm" novalidate class="regform">
     <div class="col">
+        <div class="row">
+            <input type="file" (change)="onFileSelected($event)">
+            <img *ngIf="upload==true" [src]="'data:image/png;base64,' + image" class="uploaded-image">
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Firstname</mat-label>
+                <input type="text" #firstname matInput formControlName="firstName">
+                <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">
+                    Firstname is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Lastname</mat-label>
+                <input type="text" #lastname matInput formControlName="lastName">
+                <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">
+                    Lastname is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
         <div class="row">
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Username
@@ -10,7 +32,6 @@
                     Username is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
-
         </div>
         <div class="row">
             <mat-form-field class="example-full-width" appearance="outline">
@@ -21,13 +42,12 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="row" >
+        <div class="row">
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Status</mat-label>
                 <input type="text" #status matInput formControlName="status" [readonly]="true">
             </mat-form-field>
-        </div>        
-    </div>
+        </div>
+        </div>
     <button type="submit" mat-raised-button (click)="register(registerForm.value)">Register</button>
-  </form>
-
+</form>

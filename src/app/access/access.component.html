@@ -1,26 +1,40 @@
 <app-header></app-header>
-<app-accessedit [useredit]="edit" (usereditChange)="onSubmit($event)"></app-accessedit>
-<mat-form-field appearance="outline">
-    <mat-label>
-      Search Data
-    </mat-label>
-    <input matInput type="text" (input)="searchuser(search.value)" key #search placeholder="Search">
-  </mat-form-field>
-  <br>
-<h2>Users List</h2>
+<button *ngIf="openedit==true" class="editform" mat-icon-button (click)="openedit=false"><mat-icon>close</mat-icon></button>
+<div *ngIf="openedit==true">
+    <app-accessedit [useredit]="edit" ></app-accessedit>
+</div>
+ 
+<h2 class="title">Users List</h2>
+<div class="search">
+    <button type="button" mat-icon-button color="accent" routerLink="/register"><mat-icon>add</mat-icon></button>   
+    <mat-form-field appearance="outline">
+        <mat-label>
+            Search Data
+        </mat-label>
+        <input matInput type="text" (input)="searchuser(search.value)" key #search placeholder="Search">
+    </mat-form-field>
+</div>
 <table>
-  <tr>
-    <th>No.</th>
-    <th>Username</th>
-    <th>Role</th>
-    <th>Status</th>
-    <th>Edit</th>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.role }}</td>
-    <td>{{user.status}}</td>
-    <td><button (click)="edituser(user)">Edit</button></td>
-  </tr>
+    <tr>
+        <th>No.</th>
+        <th>Image</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Edit/Delete</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td><img  [src]="'data:image/png;base64,' + user.image" class="uploaded-image"></td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{user.status}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td><button mat-icon-button color="primary" (click)="edituser(user)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="deleteuser(user)"><mat-icon>delete</mat-icon></button>
+        </td>
+    </tr>
 </table>
