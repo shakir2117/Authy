@@ -42,14 +42,14 @@ export class AuthService {
   register(registerForm: any) {
     this.http.post(this.apiURL+'users', registerForm).subscribe(data => {
       console.log('Registration successful:', data);
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth']);
       this.toastr.success('User Registered Successfully', 'Success', { timeOut: 3000 });
     });
   }
 
   logout() {
     this.cookie.deleteAll()
-    this.router.navigate(['/login'])
+    this.router.navigate(['/auth'])
   }
   getusers(): Observable<any> {
     return this.http.get(this.apiURL+'users')

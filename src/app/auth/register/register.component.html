@@ -48,6 +48,8 @@
                 <input type="text" #status matInput formControlName="status" [readonly]="true">
             </mat-form-field>
         </div>
-        </div>
-    <button type="submit" mat-raised-button (click)="register(registerForm.value)">Register</button>
+    </div>
+    <span class="buttons">
+        <button type="submit" mat-raised-button color="primary" (click)="register(registerForm.value)">Register</button>
+    </span>
 </form>

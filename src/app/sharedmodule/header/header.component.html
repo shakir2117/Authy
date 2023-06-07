@@ -6,13 +6,13 @@
       <ng-container *ngIf="(login==true)">
         <button mat-raised-button routerLink="/home">
           <mat-icon>home</mat-icon>Home</button>
-        <button mat-raised-button routerLink="/category" *ngIf="role!='user'">
+        <button mat-raised-button routerLink="/cart-prod/category" *ngIf="role!='user'">
           <mat-icon>horizontal_split</mat-icon>
           Category</button>
-        <button mat-raised-button routerLink="/product" *ngIf="role !== 'user' && role !== 'admin'">
+        <button mat-raised-button routerLink="/cart-prod/product" *ngIf="role !== 'user' && role !== 'admin'">
           <mat-icon>list</mat-icon>
           Product</button>
-          <button mat-raised-button routerLink="/access" *ngIf="role !== 'user' && role !== 'admin'">
+          <button mat-raised-button routerLink="/access/access" *ngIf="role !== 'user' && role !== 'admin'">
             <mat-icon>edit</mat-icon>
             Status</button>
 
@@ -30,10 +30,10 @@
 
     <span>
       <ng-container *ngIf="login==false">
-        <button mat-icon-button routerLink="/login">
+        <button mat-icon-button routerLink="/auth/login">
           <mat-icon>login</mat-icon>
         </button>
-        <button mat-icon-button routerLink="/register">
+        <button mat-icon-button routerLink="/auth/register">
           <mat-icon>add</mat-icon></button>
       </ng-container>
       <ng-container *ngIf="login==true">

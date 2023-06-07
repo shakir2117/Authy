@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
-import { AuthService } from '../auth.service';
+import { MaterialModule } from '../../material/material.module';
+import { AuthService } from '../../auth.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({

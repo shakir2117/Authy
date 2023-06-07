@@ -1,5 +1,5 @@
 import { Component, OnInit,AfterViewInit, ViewChild} from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';

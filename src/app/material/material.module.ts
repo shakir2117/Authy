@@ -34,6 +34,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 const MaterialComponents=[
 
   MatSnackBarModule,
+  MatDialogModule,
   MatButtonModule,
   MatSlideToggleModule, 
   LayoutModule, 

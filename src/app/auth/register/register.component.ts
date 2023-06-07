@@ -2,7 +2,7 @@
   import { Router } from '@angular/router';
   import { HttpClient } from '@angular/common/http';
   import { FormControl, FormBuilder, Validators } from '@angular/forms';
-  import { AuthService } from '../auth.service';
+  import { AuthService } from '../../auth.service';
   import { ToastrService } from 'ngx-toastr';
 
 

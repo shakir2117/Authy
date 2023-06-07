@@ -1,12 +1,7 @@
 <app-header></app-header>
-<button *ngIf="openedit==true" class="editform" mat-icon-button (click)="openedit=false"><mat-icon>close</mat-icon></button>
-<div *ngIf="openedit==true">
-    <app-accessedit [useredit]="edit" ></app-accessedit>
-</div>
- 
 <h2 class="title">Users List</h2>
 <div class="search">
-    <button type="button" mat-icon-button color="accent" routerLink="/register"><mat-icon>add</mat-icon></button>   
+    <button type="button" mat-icon-button color="accent" routerLink="/auth/register"><mat-icon>add</mat-icon></button>   
     <mat-form-field appearance="outline">
         <mat-label>
             Search Data
@@ -16,7 +11,6 @@
 </div>
 <table>
     <tr>
-        <th>No.</th>
         <th>Image</th>
         <th>Username</th>
         <th>Role</th>
@@ -26,8 +20,7 @@
         <th>Edit/Delete</th>
     </tr>
     <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td><img  [src]="'data:image/png;base64,' + user.image" class="uploaded-image"></td>
+        <td><img *ngIf="user.image!=''" [src]="'data:image/png;base64,' + user.image" class="uploaded-image"></td>
         <td>{{ user.username }}</td>
         <td>{{ user.role }}</td>
         <td>{{user.status}}</td>

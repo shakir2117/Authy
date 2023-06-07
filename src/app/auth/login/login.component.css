@@ -1,5 +1,5 @@
 .loginform{
-    width: 250px;
+    width: 30%;
     height: 200px;
     margin: 0 auto;
     background: #fff;
@@ -7,4 +7,12 @@
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+}
+button{
+margin: 0 auto;
 }

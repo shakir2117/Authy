@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormControl,FormBuilder, Validators} from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from 'src/app/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
