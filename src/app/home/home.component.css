@@ -7,3 +7,20 @@ button{
 .titlecase{
     display: inline-block;
 }
+.example-card {
+    margin-left: 5%;
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    height: 50px;
+    width: 50px;
+  }
+img{
+    width: 400px;
+    height: 400px;
+}
+.card{
+    margin:3%;
+    display: inline-flex;
+}

@@ -10,9 +10,10 @@ import { environment } from 'src/environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  courses!: any[];
   apiURL = environment.apiurl;
-  constructor(private http: HttpClient , private route:Router,private cookie:CookieService) {}
+  constructor(private http: HttpClient , private cookie:CookieService) {}
 
   ngOnInit() {
     let  role = this.cookie.get('role')
@@ -24,9 +25,9 @@ export class HomeComponent {
       'username': username,
       'role': role,
     });
-    // httpheaders= httpheaders.append('username', user.username);
-    // httpheaders= httpheaders.append('role', user.role);
-    this.http.get(this.apiURL+'users', { headers: httpheaders }).subscribe(data => {
+    this.http.get(this.apiURL+'course', { headers: httpheaders }).subscribe(data => {
+      this.courses = JSON.parse(JSON.stringify(data));
+      console.log(this.courses);
     });
 }
 

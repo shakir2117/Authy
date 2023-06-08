@@ -16,7 +16,6 @@ import { BrowserModule } from '@angular/platform-browser';
     AccesseditComponent
   ],
   imports: [
-    BrowserModule,
     MaterialModule,
     AccessRoutingModule,
     CommonModule,

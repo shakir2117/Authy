@@ -13,7 +13,6 @@ import { BrowserModule } from '@angular/platform-browser';
     CategoryComponent,
   ],
   imports: [
-    BrowserModule,
     CommonModule,
     CartProdRoutingModule,
     SharedmoduleModule,

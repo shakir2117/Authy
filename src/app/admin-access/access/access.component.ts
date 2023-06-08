@@ -25,8 +25,8 @@ export class AccessComponent implements OnInit {
   searchuser(search: string) { //this function is called when we search for a user
     this.auth.getusers().pipe(
       switchMap((user) => from(user)),
-      filter((user: any) => user.username.toLowerCase().includes(search.toLowerCase()) ||
-        user.role.toLowerCase().includes(search.toLowerCase())),
+      filter((user: any) => user.username && user.username.toLowerCase().includes(search.toLowerCase())
+       || user.role && user.role.toLowerCase().includes(search.toLowerCase())),
       toArray()
     ).subscribe((filteredCustomers: any[]) => {
       this.users = filteredCustomers;

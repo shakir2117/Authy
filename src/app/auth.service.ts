@@ -49,7 +49,7 @@ export class AuthService {
 
   logout() {
     this.cookie.deleteAll()
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth/login'])
   }
   getusers(): Observable<any> {
     return this.http.get(this.apiURL+'users')
